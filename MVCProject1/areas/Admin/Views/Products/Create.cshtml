@@ -1,0 +1,48 @@
+﻿@section TitleSection {
+    Products
+}
+@model CreateProductViewModel
+<div class="col-md-12">
+    <div class="card card-primary card-outline mb-4">
+        <div class="card-header">
+            <div class="card-title">Create New Product</div>
+        </div>
+        <form asp-controller="Products" asp-action="Store" method="post">
+
+            <div class="card-body">
+                <div class="mb-3">
+                    <label asp-for="Name" class="form-label"></label>
+                    <input asp-for="Name" class="form-control" />
+                </div>
+                <div class="mb-3">
+                    <label asp-for="CategoryId" class="form-label"></label>
+                    <select asp-for="CategoryId" class="form-select">
+                        @foreach (var item in ViewBag.Categories)
+                        {
+                            <option value="@item.Id">@item.Name</option>
+                        }
+                    </select>
+                </div>
+                <div class="mb-3">
+                    <label asp-for="Description" class="form-label"></label>
+                    <textarea asp-for="Description" class="form-control"></textarea>
+                </div>
+                <div class="mb-3">
+                    <label asp-for="Price" class="form-label"></label>
+                    <input asp-for="Price" class="form-control" />
+                </div>
+                <div class="mb-3">
+                    <label asp-for="Quantity" class="form-label"></label>
+                    <input asp-for="Quantity" class="form-control" />
+                </div>
+                <div class="mb-3">
+                    <label asp-for="Rate" class="form-label"></label>
+                    <input asp-for="Rate" class="form-control" />
+                </div>
+               
+                <div class="card-footer">
+                    <button type="submit" class="btn btn-info">Create</button>
+                </div>
+            </form>
+        </div>
+    </div>
